@@ -34,9 +34,24 @@ The left_join, inner_join, and full_join data verbs require data as a paramenter
 There is no identifiers in either table for the data to match correctly.
 
 ### Problem 11.6
+1)1910 rows, meaning 1910 different counties
 ```{r}
 ZipGeography %>%
   group_by(County) %>%
   summarise(count=n())
+```
+2)Which city names are used in the most states? Find most recurring city name.
+Abington recurred 193 times, which is the most used city name in the state.
+```{r}
+ZipGeography %>%
+  group_by(CityName) %>%
+  summarise(count=n())
+```
+3)Identify cities that include more than 5% of their state population; which of those city names are used in the most states?
+
+```{r}
+ZipGeography %>%
+  group_by(CityName) %>%
+  filter(HousingUnits>(0.05*population))
 ```
 
