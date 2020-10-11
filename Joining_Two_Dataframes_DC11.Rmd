@@ -1,0 +1,42 @@
+---
+title: "STAT 184 Homework Exercises" 
+subtitle: "DataComputing Chapters 11"
+author: "Anikate Ganju"
+output: html_notebook
+---
+
+## Assigned Exercises
+
+- DC Chapter 1 Exercises: 11.1, 11.2, 11.6
+
+## Front Matter
+
+```{r}
+# clean up workspace environment
+rm(list = ls())
+
+# all packages used for the assignment
+library(mosaic)
+library(tidyverse)
+library(DataComputing)
+
+```
+
+
+
+## Chapter 11 Exercises
+
+### Problem 11.1
+The left_join, inner_join, and full_join data verbs require data as a paramenter because the function's purpose in itself is to join parts of data tables. Without a data table, we would get an error for no parameters given.
+
+### Problem 11.2
+There is no identifiers in either table for the data to match correctly.
+
+
+### Problem 11.6
+
+### Problem 11.7
+
+[and so forth...]
+
+
