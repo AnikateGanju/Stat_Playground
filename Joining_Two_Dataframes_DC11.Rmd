@@ -20,6 +20,7 @@ library(mosaic)
 library(tidyverse)
 library(DataComputing)
 
+data(ZipGeography)
 ```
 
 
@@ -32,11 +33,10 @@ The left_join, inner_join, and full_join data verbs require data as a paramenter
 ### Problem 11.2
 There is no identifiers in either table for the data to match correctly.
 
-
 ### Problem 11.6
-
-### Problem 11.7
-
-[and so forth...]
-
+```{r}
+ZipGeography %>%
+  group_by(County) %>%
+  summarise(count=n())
+```
 
