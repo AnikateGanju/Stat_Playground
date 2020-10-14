@@ -39,19 +39,45 @@ There is no identifiers in either table for the data to match correctly.
 ZipGeography %>%
   group_by(County) %>%
   summarise(count=n())
+View(ZipGeography)
 ```
 2)Which city names are used in the most states? Find most recurring city name.
 Abington recurred 193 times, which is the most used city name in the state.
 ```{r}
-ZipGeography %>%
+City <- ZipGeography %>%
+  filter(!is.na(CityName)) %>%
   group_by(CityName) %>%
-  summarise(count=n())
+  summarise(Unique_States=n_distinct(State)) %>%
+  filter(CityName!=" ") %>%
+  arrange(desc(Unique_States))
+View(City)
 ```
 3)Identify cities that include more than 5% of their state population; which of those city names are used in the most states?
 
 ```{r}
-ZipGeography %>%
-  group_by(CityName) %>%
+fiveperc <- ZipGeography
+fiveperc %>%
+  
+  group_by(State, CityName, population) %>%
   filter(HousingUnits>(0.05*population))
 ```
+4)Does any state have more than one time zone? Yes, Alaska, Oregon, Hawaii, Idaho, Texas,
+ Nebraska, Kansas, South Dakota, North Dakota, Michigan, Indiana, Kentucky, Tennesse, and Florida.
+```{r}
+diff_tz <- ZipGeography %>%
+  filter(Timezone!=" ",State!="") %>%
+  group_by(State, Timezone) %>%
+  summarise(count=n())
 
+View(diff_tz)
+```
+5)Does any city have more than one time zone?
+Yes, every repeated case in the following dataframe is a city with more than one time zone. Ex: Acton
+```{r}
+diff_citytz <- ZipGeography %>%
+  filter(Timezone!=" ",CityName!="") %>%
+  group_by(CityName, Timezone) %>%
+  summarise(count=n())
+
+View(diff_citytz)
+```
