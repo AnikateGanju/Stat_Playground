@@ -81,3 +81,12 @@ diff_citytz <- ZipGeography %>%
 
 View(diff_citytz)
 ```
+6)Does any county have more than one time zone?
+Yes, every repeated case in the following dataframe is a county with more than one time zone. Ex: Suffolk
+```{r}
+diff_countytz <- ZipGeography %>%
+  filter(Timezone != " ", County != "") %>%
+  select(County,Timezone)
+
+View(diff_countytz)
+```
