@@ -1,0 +1,51 @@
+---
+title: "STAT 184 Homework Exercises" 
+subtitle: "DataComputing Chapters 12"
+author: "Anikate Ganju"
+output: html_notebook
+---
+
+## Assigned Exercises
+
+- DC Ch 12 Exercises: 12.1 (1, 2, 3), 12.2 (1, 2, 3, 4), 12.3 (1, 2), 12.4
+## Front Matter
+
+```{r}
+# clean up workspace environment
+rm(list = ls())
+
+# all packages used for the assignment
+library(DataComputing)
+library(tidyverse)
+library(ggplot2)
+data("BabyNames")
+```
+
+## 12.1
+1)sex
+```{r}
+BothSexes <-
+  BabyNames %>%
+  spread( key=sex, value=count ) %>%
+  filter( F>1, M>1 )
+
+View(BothSexes)
+```
+2)
+Aalijah, Aalijah, Aamari, Aarin, Aarion, Aarya, Abiola, Abir, Abrar, Aby
+```{r}
+BothSexes %>%
+  mutate(bal=abs(log(F/M))) %>%
+  group_by(name) %>%
+  arrange(bal)
+```
+3)
+Baby, Dusty, Jaylin, Justice, Lavern, Marion, Rian, Ryley, Tegan, Leslie
+```{r}
+BothSexes %>%
+  mutate(bal=abs(log(F/M))) %>%
+  arrange(bal) %>%
+  filter( F>100, M >100 )
+```
+
+## 12.2
