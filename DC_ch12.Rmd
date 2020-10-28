@@ -71,4 +71,16 @@ BabyNames %>%
 
 ## 12.3
 1)
+A is wider
+B is wider
+Both are wide
+2)Data frame B because the values for y2000 and y2001 for each country is given in each country's own case.
+
+## 12.4
+1)The subject column is not in an optimal position for pracical purposes.
 2)
+```{r}
+BP_wide %>%
+  group_by(subject,when) %>%
+  gather(key = when, value = sbp, before, after)
+```
