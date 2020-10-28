@@ -49,3 +49,26 @@ BothSexes %>%
 ```
 
 ## 12.2
+1)
+Version 1: Shows how many female or male babies were given a name, during 1912 or 2012 
+Version 2: Each case is a name, followed by the year of usage, and a breakdown of usage by male and female
+Version 3: Each case is a name, followed by the number of Females or Males with the name in 1912 vs 2012
+2)
+Version 2 is wider because the sex is broken down into two columns in version 2, while in version 1 it is narrowed into one column.
+```{r}
+BabyNames %>%
+  group_by(name, year, sex) %>%
+  spread(key=sex,value=count) %>%
+  arrange(name)
+```
+3) Version 3 is wider because year is expanded into two columns rather than one.
+```{r}
+BabyNames %>%
+  group_by(name, sex, year=="1912",year=="2012") %>%
+  spread(key=year,value=count)
+```
+4)Version 2 since the male and female representation is already given in each case. Version three would be harder because the male and female representations are in separate cases and they are also separated by different years.
+
+## 12.3
+1)
+2)
