@@ -16,7 +16,6 @@ rm(list = ls())
 
 # all packages used for the assignment
 library(tidyverse)
-library(mosaic)
 library(DataComputing)
 library(ggplot2)
 library(lubridate)
@@ -33,14 +32,24 @@ BabyNames %>%
 ## 13.2
 1)
 ```{r}
+Part1<-
 BabyNames %>%
-  group_by(name, year) %>%
-  summarise(total = sum(count)) %>%
-  filter( rank(desc(total)) <= 100)
+group_by(year, name) %>% #if you use group_by(name, year) then you will not get the same table
+summarise(yearCount = sum(count)) %>%
+mutate( nameRank = rank(desc(yearCount)), ranking = ifelse( nameRank <= 100, "Top_100", "Below") )
+
+Part2<-
+Part1 %>%
+group_by(year, ranking) %>%
+summarise(total = sum(yearCount)) %>%
+arrange(desc(year))
 ```
 2)
 ```{r}
-
+frac <-
+  BabyNames %>%
+  group_by(name) %>%
+  mutate()
 ```
 3)
 
