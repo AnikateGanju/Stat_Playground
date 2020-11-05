@@ -1,6 +1,6 @@
 ---
 title: "STAT 184 Homework Exercises" 
-subtitle: "DataComputing Chapters 13"
+subtitle: "DataComputing Chapters 13 and 16"
 author: "Anikate Ganju"
 output: html_notebook
 ---
@@ -43,15 +43,31 @@ Part1 %>%
 group_by(year, ranking) %>%
 summarise(total = sum(yearCount)) %>%
 arrange(desc(year))
+
+View(Part1)
+View(Part2)
 ```
 2)
 ```{r}
 frac <-
-  BabyNames %>%
-  group_by(name) %>%
-  mutate()
+  Part1 %>%
+  spread(key=ranking,value=yearCount) %>%
+  mutate(ratio=sum(Top_100)/(sum(Below)+sum(Top_100)))
+
+x <- sum(frac$Below, na.rm=FALSE)
+y <- sum(frac$Top_100)
+z <- (x+y)
+ratio <- y/z
+print(x) #not sure why this is not working.
+View(frac)
 ```
 3)
+```{r}
+frac %>%
+  ggplot(aes(x=year,y=ratio)) #if I had 'ratio' working in 2) I think this would display something more useful
+  geom_line() +
+  theme_bw()
+```
 
 ## 16.1
 1)
