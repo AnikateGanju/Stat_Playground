@@ -1,0 +1,31 @@
+---
+title: "STAT 184 Homework Exercises" 
+subtitle: "DataComputing Chapters 15"
+author: "Anikate Ganju"
+output: html_notebook
+---
+
+## Assigned Exercises
+
+- DC Ch 12 Exercises: 15.1-15.5
+## Front Matter
+```{r}
+library(tidyverse)
+library(mosaic)
+library(DataComputing)
+library(ggplot2)
+library(lubridate)
+```
+
+## 15.1
+```{r}
+CPS85 %>%
+ ggplot(aes(x = sex, y = wage )) +
+ geom_boxplot(aes(fill = sex))
+```
+## 15.2
+1) ~1.65 meters
+2) Women: 1.6, Men: 1.75
+3) 40yrsold: 26.25, 70yrsold: 27.5
+
+## 15.3
