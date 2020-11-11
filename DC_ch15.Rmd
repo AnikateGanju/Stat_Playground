@@ -29,3 +29,27 @@ CPS85 %>%
 3) 40yrsold: 26.25, 70yrsold: 27.5
 
 ## 15.3
+```{r}
+CPS85 %>%
+  ggplot(aes(x = educ , y = wage, color = sex )) +
+  geom_point((aes(fill = sex)))+
+  stat_smooth(method = lm) + theme_bw() +
+  ylim(0,15)
+```
+
+## 15.4
+```{r}
+Galton %>%
+  ggplot(aes(x = mother , y = height, z=father)) +
+  geom_contour() +
+  facet_wrap(vars(sex))
+```
+
+## 15.5
+1) No, the data does not indicate that ZIP codes with high elderly populations tend to have high child populations.
+2) It is very possible for there to be no relation because I do not see any evidence of correlation within the points.
+
+1)Computationally, the  blue line might be the 'line of best fit', but the data points are too spread out to make that line a good representation of the data spread
+2)The height of the graph with 80 points has a height(in the middle) which is about half of the one with 20 points.
+3)My calculations could be incorrect, but this does not make sense according to this graph, because with n=80, the width is still about 5 units wide. Which is no where close to 1/root(80).
+
