@@ -55,5 +55,15 @@ NameList %>%
 ```
 
 ## 17.2
+```{r}
+NameList %>%
+  filter(grepl( "(k|c)[aeiou]*,[tl],[aeiou]*,n$", name )) %>%
+  arrange(desc(total))
+```
+
+## 17.3
+It seems like digits are being extracted from the string. Followed by special characters between short strings of numbers.
+
+## 17.4
 
 

@@ -330,10 +330,33 @@ data(&quot;BabyNames&quot;)</code></pre>
 <div id="section-1" class="section level2">
 <h2>17.2</h2>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTmFtZUxpc3QgJT4lXG4gIGZpbHRlcihncmVwbCggXCIoa3xjKVthZWlvdV0qLFt0bF0sW2FlaW91XSosbiRcIiwgbmFtZSApKSAlPiVcbiAgYXJyYW5nZShkZXNjKHRvdGFsKSlcbmBgYCJ9 -->
+<pre class="r"><code>NameList %&gt;%
+  filter(grepl( &quot;(k|c)[aeiou]*,[tl],[aeiou]*,n$&quot;, name )) %&gt;%
+  arrange(desc(total))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjMsIm5yb3ciOjB9LCJyZGYiOiJVa1JZTWdwWUNnQUFBQUlBQXdRQkFBSURBQUFBQkFJQUFBQUJBQVFBQ1FBQUFBRjRBQUFERXdBQUFBTUFBQUFRQUFBQUFBQUFBQkFBQUFBQUFBQUFEUUFBQUFBQUFBUUNBQUFBQVFBRUFBa0FBQUFGWTJ4aGMzTUFBQUFRQUFBQUFRQUVBQWtBQUFBS1pHRjBZUzVtY21GdFpRQUFCQUlBQUFBQkFBUUFDUUFBQUFseWIzY3VibUZ0WlhNQUFBQU5BQUFBQUFBQUJBSUFBQUFCQUFRQUNRQUFBQVZ1WVcxbGN3QUFBQkFBQUFBREFBUUFDUUFBQUFSdVlXMWxBQVFBQ1FBQUFBTnpaWGdBQkFBSkFBQUFCWFJ2ZEdGc0FBQUEvZ0FBQkFJQUFBQUJBQVFBQ1FBQUFBZHZjSFJwYjI1ekFBQUNFd0FBQUFVQUFBQVFBQUFBQVFBRUFBa0FBQUFCY2dBQUFCQUFBQUFCQUFRQUNRQUFBQTkxYm01aGJXVmtMV05vZFc1ckxUY0FBQUFLQUFBQUFRQUFBQUFBQUFBTkFBQUFBUUFBQUFBQUFBQU5BQUFBQVFBQUFBTUFBQVFDQUFBRS93QUFBQkFBQUFBRkFBUUFDUUFBQUFabGJtZHBibVVBQkFBSkFBQUFCV3hoWW1Wc0FBUUFDUUFBQUE1eWIzZHVZVzFsY3k1d2NtbHVkQUFFQUFrQUFBQUtjbTkzY3k1MGIzUmhiQUFFQUFrQUFBQUtZMjlzY3k1MGIzUmhiQUFBQVA0QUFBRCsifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["sex"],"name":[2],"type":["chr"],"align":["left"]},{"label":["total"],"name":[3],"type":["int"],"align":["right"]}],"data":[],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[0]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-2" class="section level2">
+<h2>17.3</h2>
+<p>It seems like digits are being extracted from the string. Followed by special characters between short strings of numbers.</p>
+</div>
+<div id="section-3" class="section level2">
+<h2>17.4</h2>
+<!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiREMgY2hwdCAxNyIKYXV0aG9yOiAiQW5pa2F0ZSBHYW5qdSIKZGF0ZTogIjExLzE3LzIwMjAiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMjIENoYXB0ZXIgMTcgREM6IDE3LjEsMTcuMiwxNy4zLDE3LjQsMTcuNSwxNy44CgoKIyBTZXQgVXAKYGBge3J9CnJtKGxpc3Q9bHMoKSkKYGBgCgpgYGB7cixtZXNzYWdlPUZBTFNFfQojIGxvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KG1vc2FpYykKbGlicmFyeShEYXRhQ29tcHV0aW5nKQpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkobHVicmlkYXRlKQpgYGAKCmBgYHtyfQojIExvYWQgdGhlIEJhYnlOYW1lcyBkYXRhIGludG8gUlN0dWRpbyBlbnZpcm9ubWVudCAoZnJvbSBEYXRhQ29tcHV0aW5nIHBhY2thZ2UpCmRhdGEoIkJhYnlOYW1lcyIpCmBgYAoKYGBge3J9Ck5hbWVMaXN0IDwtIAogIEJhYnlOYW1lcyAlPiUgCiAgZ3JvdXBfYnkobmFtZSwgc2V4KSAlPiUKICBzdW1tYXJpc2UodG90YWwgPSBzdW0oY291bnQpKSAKYGBgCgojIyAxNy4xCmBgYHtyfQpOYW1lTGlzdCAlPiUKICBmaWx0ZXIoIGdyZXBsKCAiW2FlaW91XSQiLCBuYW1lICksIHNleD09J00nICkgJT4lCiAgYXJyYW5nZShkZXNjKHRvdGFsKSkgJT4lCiAgaGVhZCgxMCkKYGBgCgpgYGB7cn0KTmFtZUxpc3QgJT4lIAogIGZpbHRlcihncmVwbCgiW1s6YWxwaGE6XV0gW1s6c3BhY2U6XV0gW1s6YWxwaGE6XV0iLCBuYW1lKSkKYGBgCgpgYGB7cn0KTmFtZUxpc3QgJT4lCiAgZmlsdGVyKCBncmVwbCggImpvZSQiLCBuYW1lICkpICU+JQogIGFycmFuZ2UoZGVzYyh0b3RhbCkpICU+JQogIGhlYWQoMTApCmBgYAoKIyMgMTcuMgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiREMgY2hwdCAxNyIKYXV0aG9yOiAiQW5pa2F0ZSBHYW5qdSIKZGF0ZTogIjExLzE3LzIwMjAiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCiMjIENoYXB0ZXIgMTcgREM6IDE3LjEsMTcuMiwxNy4zLDE3LjQsMTcuNSwxNy44CgoKIyBTZXQgVXAKYGBge3J9CnJtKGxpc3Q9bHMoKSkKYGBgCgpgYGB7cixtZXNzYWdlPUZBTFNFfQojIGxvYWQgbmVjZXNzYXJ5IHBhY2thZ2VzCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KG1vc2FpYykKbGlicmFyeShEYXRhQ29tcHV0aW5nKQpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkobHVicmlkYXRlKQpgYGAKCmBgYHtyfQojIExvYWQgdGhlIEJhYnlOYW1lcyBkYXRhIGludG8gUlN0dWRpbyBlbnZpcm9ubWVudCAoZnJvbSBEYXRhQ29tcHV0aW5nIHBhY2thZ2UpCmRhdGEoIkJhYnlOYW1lcyIpCmBgYAoKYGBge3J9Ck5hbWVMaXN0IDwtIAogIEJhYnlOYW1lcyAlPiUgCiAgZ3JvdXBfYnkobmFtZSwgc2V4KSAlPiUKICBzdW1tYXJpc2UodG90YWwgPSBzdW0oY291bnQpKSAKYGBgCgojIyAxNy4xCmBgYHtyfQpOYW1lTGlzdCAlPiUKICBmaWx0ZXIoIGdyZXBsKCAiW2FlaW91XSQiLCBuYW1lICksIHNleD09J00nICkgJT4lCiAgYXJyYW5nZShkZXNjKHRvdGFsKSkgJT4lCiAgaGVhZCgxMCkKYGBgCgpgYGB7cn0KTmFtZUxpc3QgJT4lIAogIGZpbHRlcihncmVwbCgiW1s6YWxwaGE6XV0gW1s6c3BhY2U6XV0gW1s6YWxwaGE6XV0iLCBuYW1lKSkKYGBgCgpgYGB7cn0KTmFtZUxpc3QgJT4lCiAgZmlsdGVyKCBncmVwbCggImpvZSQiLCBuYW1lICkpICU+JQogIGFycmFuZ2UoZGVzYyh0b3RhbCkpICU+JQogIGhlYWQoMTApCmBgYAoKIyMgMTcuMgpgYGB7cn0KTmFtZUxpc3QgJT4lCiAgZmlsdGVyKGdyZXBsKCAiKGt8YylbYWVpb3VdKixbdGxdLFthZWlvdV0qLG4kIiwgbmFtZSApKSAlPiUKICBhcnJhbmdlKGRlc2ModG90YWwpKQpgYGAKCiMjIDE3LjMKSXQgc2VlbXMgbGlrZSBkaWdpdHMgYXJlIGJlaW5nIGV4dHJhY3RlZCBmcm9tIHRoZSBzdHJpbmcuIEZvbGxvd2VkIGJ5IHNwZWNpYWwgY2hhcmFjdGVycyBiZXR3ZWVuIHNob3J0IHN0cmluZ3Mgb2YgbnVtYmVycy4KCiMjIDE3LjQKCgo=</div>
 
 
 
