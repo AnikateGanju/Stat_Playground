@@ -1,0 +1,59 @@
+---
+title: "DC chpt 17"
+author: "Anikate Ganju"
+date: "11/17/2020"
+output: html_notebook
+---
+
+## Chapter 17 DC: 17.1,17.2,17.3,17.4,17.5,17.8
+
+
+# Set Up
+```{r}
+rm(list=ls())
+```
+
+```{r,message=FALSE}
+# load necessary packages
+library(tidyverse)
+library(mosaic)
+library(DataComputing)
+library(ggplot2)
+library(lubridate)
+```
+
+```{r}
+# Load the BabyNames data into RStudio environment (from DataComputing package)
+data("BabyNames")
+```
+
+```{r}
+NameList <- 
+  BabyNames %>% 
+  group_by(name, sex) %>%
+  summarise(total = sum(count)) 
+```
+
+## 17.1
+```{r}
+NameList %>%
+  filter( grepl( "[aeiou]$", name ), sex=='M' ) %>%
+  arrange(desc(total)) %>%
+  head(10)
+```
+
+```{r}
+NameList %>% 
+  filter(grepl("[[:alpha:]] [[:space:]] [[:alpha:]]", name))
+```
+
+```{r}
+NameList %>%
+  filter( grepl( "joe$", name )) %>%
+  arrange(desc(total)) %>%
+  head(10)
+```
+
+## 17.2
+
+
