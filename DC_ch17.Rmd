@@ -65,5 +65,41 @@ NameList %>%
 It seems like digits are being extracted from the string. Followed by special characters between short strings of numbers.
 
 ## 17.4
+1) Considering all the or( | ) statsments in this string and []s, the pattern can only be 2 letters long.
+2)none
+3)A list of states
 
+## 17.5
+1)
+```{r}
+BibleNames <- 
+  readr::read_csv("http://tiny.cc/dcf/BibleNames.csv")
+
+BibleNames %>%
+  filter( grepl( ".*(dam|lory|bar)", name )) %>%
+  arrange(desc(name))
+```
+2)
+```{r}
+BibleNames %>%
+  filter( grepl( "dam$|lory$|bar$", name )) %>%
+  arrange(desc(name))
+```
+
+## 17.8
+```{r}
+CrimeSample <- 
+  readr::read_csv("http://tiny.cc/dcf/Boston-Crimes-50.csv")
+```
+```{r}
+View(CrimeSample)
+```
+```{r}
+my_regex <- "[1234567890.]"
+
+CrimeSample %>%
+  tidyr::extract("Location", into=c("lat", "long"), 
+                 regex = my_regex, 
+                 convert = TRUE)
+```
 
