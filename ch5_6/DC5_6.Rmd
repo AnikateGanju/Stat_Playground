@@ -1,0 +1,99 @@
+---
+title: "STAT 184 Homework Exercises" 
+subtitle: "DataComputing Chapters 5 & 6"
+author: "Anikate Ganju"
+output: html_notebook
+---
+#togit
+
+## Assigned Exercises
+
+- DC Chapter 5 Exercises: 5.1
+- DC Chapter 6 Exercises: 6.1,6.2,6.3,6.4,6.5,6.6,6.7,6.8,6.9,6.10
+
+## Front Matter
+
+```{r}
+# clean up workspace environment
+rm(list = ls())
+
+# all packages used for the assignment
+library(mosaic)
+library(tidyverse)
+library(ggplot2)
+library(mosaicData)
+library(DataComputing)
+```
+
+
+## 5.1
+```{r}
+ggplot(data=CPS85,aes(x=sex,y=wage ,fill=married)) +
+  geom_bar(stat='identity',position='dodge') +
+  facet_wrap(~race,ncol=3)
+```
+
+## 6.1
+1)“1433B”, “1433E”, “1433G” and “1433Z”
+2)no
+3)Vertical Highest/lowest bars, red line to show general curve, and the asterik.
+
+## 6.2
+1)
+x-axis: genes
+y-axis: concentration of gene
+Flux legend: shows whether flux is 0 or greater than 1
+molecule legend: shows molecule by color
+target receptors(bars on top): molecules grouped by receptor
+2)
+color: molecule type
+fill: flux quantity
+position: gene, concentration, and receptors
+3)concentration and gene
+4)gene and target
+
+## 6.3
+1)
+black line: the label is the protein name, the color is polarity, and the size is determined by highest/lowest
+asterik:represents signif
+2)
+center and signif define frame.
+Horizontal: proteins
+vertical: log2 ratio
+3)yes
+4)y-axis and the blue text
+
+## 6.4
+1)time-transportation arrival times
+2)color maps the type of transportation and size of colored bars: duration of trip
+3)transportation times is encodede by shape/style; position encodes eta
+4)bus,train, labels, color of bar graph
+
+## 6.5
+B. State and Polling Organization.
+
+## 6.6
+C. Glyph: Rectangle. Graphical attribute: color.
+
+## 6.7
+D. NYT poll probability for the Democratic candidate.
+
+## 6.8
+A. Vertical scale: Name of state.
+B. Vertical scale: Name of candidate.
+
+## 6.9
+```{r}
+Small <- 
+  NCHS %>%
+  sample_n(size=5000)
+
+Small %>%
+  ggplot(aes(x=bmi,y=weight)) +
+  geom_point() +
+  aes(color=smoker)
+```
+
+## 6.10
+a)layers of different Bacteria, viruses, archea, and eukaryotes
+b)There is no scale, I believe.
