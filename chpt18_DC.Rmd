@@ -1,0 +1,15 @@
+---
+title: "DC chpt 18"
+author: "Anikate Ganju"
+date: "12/6/2020"
+output: html_notebook
+---
+ongit
+
+Chapter 18: 18.1
+
+#18.1
+1)living_area, bathrooms, bedrooms, and fireplace.
+2)no
+3)typical difference= 179796.647-151424.497= 28372.15
+4)Generally, the larger the amount of square feet, the more the house will cost. Having a fireplace will also increase the price of a house. Factors such as these, can increase the price of a house.

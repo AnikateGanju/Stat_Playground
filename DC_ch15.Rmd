@@ -40,8 +40,8 @@ CPS85 %>%
 ## 15.4
 ```{r}
 Galton %>%
-  ggplot(aes(x = mother , y = height, z=father)) +
-  geom_contour() +
+  ggplot(aes(x = height , y = mother)) +
+  geom_density2d() +
   facet_wrap(vars(sex))
 ```
 
@@ -52,4 +52,3 @@ Galton %>%
 1)Computationally, the  blue line might be the 'line of best fit', but the data points are too spread out to make that line a good representation of the data spread
 2)The height of the graph with 80 points has a height(in the middle) which is about half of the one with 20 points.
 3)My calculations could be incorrect, but this does not make sense according to this graph, because with n=80, the width is still about 5 units wide. Which is no where close to 1/root(80).
-

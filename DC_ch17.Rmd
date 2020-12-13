@@ -102,4 +102,3 @@ CrimeSample %>%
                  regex = my_regex, 
                  convert = TRUE)
 ```
-

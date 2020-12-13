@@ -1,0 +1,133 @@
+---
+title: "MPG comparison"
+author: "Anikate Ganju"
+date: "11/17/2020"
+output: html_notebook
+---
+
+Guiding Question: What type of cars give the best gas mileage?
+
+Challenges encountered: disecting mpg given unorthodo dataset.
+
+Visualization: # doors vs mpg. type of cars avg mpg(compact, SUV, etc.)
+
+
+
+## Data Sources
+Primary dataset: Auto-mpg data: https://www.kaggle.com/uciml/autompg-dataset
+Secondary dataset: ggplot2::mpg
+
+## Data Access
+```{r}
+library(ggplot2)
+library(mosaicData)
+library(dplyr)
+library(tidyverse)
+data(mpg)
+```
+Kaggle dataset access:
+```{r}
+kaggle_mpg <- read.csv("auto_mpg.csv")
+glimpse(kaggle_mpg)
+```
+```{r}
+head(kaggle_mpg)
+```
+```{r}
+tail(kaggle_mpg)
+```
+ggplot mpg dataset access:
+```{r}
+gg_mpg <- (ggplot2::mpg)
+glimpse(gg_mpg)
+```
+```{r}
+head(gg_mpg)
+```
+```{r}
+tail(gg_mpg)
+```
+## Data Wrangling
+```{r}
+mpg_drv_summary <- function() {
+  ggplot(ggplot2::mpg) + 
+    geom_bar(aes(x = cty)) +
+    ggtitle("Spread of ggplot::mpg") +
+    coord_flip()
+}
+```
+
+```{r}
+kaggle_mpg %>%
+  filter(grepl("honda", car.name, ignore.case = TRUE)) %>%
+  filter(mpg>32) %>%
+  arrange(desc(mpg))
+```
+```{r}
+honda_combmpg <-  
+  gg_mpg %>%
+  filter(grepl("honda", manufacturer, ignore.case = TRUE)) %>%
+  mutate(comb_mpg=((cty+hwy)/2)) %>%
+  arrange(desc(comb_mpg))
+
+View(honda_combmpg)
+```
+
+```{r}
+vw_combmpg <-  
+  gg_mpg %>%
+  filter(grepl("volkswagen", manufacturer, ignore.case = TRUE)) %>%
+  mutate(comb_mpg=((cty+hwy)/2)) %>%
+  arrange(desc(comb_mpg))
+
+vw_combmpg %>%
+  spread(key=cyl,value=comb_mpg)
+```
+
+
+## Data visualization
+```{r}
+vw_combmpg %>%
+  ggplot(aes(x=displ,y=comb_mpg)) +
+  geom_point() +
+  aes(color=trans)
+```
+
+```{r}
+honda_combmpg %>%
+  ggplot(aes(x=displ,y=comb_mpg)) +
+  geom_point() +
+  aes(color=trans)
+```
+```{r}
+mpg %>%
+  ggplot(aes(x=cty)) +
+  geom_density(aes(color=cty, fill=cty)) +
+  xlim(c(0,30)) +
+  theme_bw()
+```
+
+```{r}
+mpg %>%
+  ggplot(aes(x=cty,y=hwy)) +
+  geom_point(aes(shape=manufacturer)) +
+  theme(legend.position="top")
+```
+
+```{r}
+mpg_drv_summary()
+```
+most cars from our ggplot dataset lie in the 10mpg to 20mpg range.
+This is purely to show the spread of mpg in the city, of the cars in our dataset.
+
+```{r}
+col_summary <- function(df, col) {
+  ggplot(df) +
+    ggtitle("Spread of Volkswagen combined mpg") +
+    geom_bar(aes(x={{col}})) + 
+    coord_flip()
+}
+
+col_summary(vw_combmpg, comb_mpg)
+
+```
